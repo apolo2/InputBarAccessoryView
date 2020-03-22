@@ -69,14 +69,14 @@ open class InputTextView: UITextView {
         let label = UILabel()
         label.numberOfLines = 0
         label.textColor = .lightGray
-        label.text = "Aa"
+        label.text = "Nhập tin nhắn"
         label.backgroundColor = .clear
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     /// The placeholder text that appears when there is no text
-    open var placeholder: String? = "Aa" {
+    open var placeholder: String? = "Nhập tin nhắn" {
         didSet {
             placeholderLabel.text = placeholder
         }
