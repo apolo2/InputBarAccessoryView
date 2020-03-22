@@ -36,7 +36,7 @@ public struct KeyboardNotification {
     public let event: KeyboardEvent
     
     /// The animation length the keyboards transition
-    public let timeInterval: TimeInterval
+    public var timeInterval: TimeInterval
     
     /// The animation properties of the keyboards transition
     public let animationOptions: UIView.AnimationOptions
