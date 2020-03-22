@@ -283,6 +283,7 @@ open class KeyboardManager: NSObject, UIGestureRecognizerDelegate {
         frame.origin.y = max(absoluteLocation.y, window.bounds.height - frame.height)
         frame.size.height = window.bounds.height - frame.origin.y
         keyboardNotification.endFrame = frame
+        keyboardNotification.timeInterval = 0
         callbacks[.willChangeFrame]?(keyboardNotification)
     }
     
