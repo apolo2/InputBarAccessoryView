@@ -68,7 +68,7 @@ open class AutocompleteManager: NSObject, InputPlugin, UITextViewDelegate, UITab
         tableView.dataSource = self
         return tableView
     }()
-    
+    open var selectedRange = NSRange(location: 0, length: 0)
     /// Adds an additional space after the autocompleted text when true.
     /// Default value is `TRUE`
     open var appendSpaceOnCompletion = true
@@ -393,7 +393,7 @@ open class AutocompleteManager: NSObject, InputPlugin, UITextViewDelegate, UITab
         reloadData()
     }
     
-    public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    open public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
         // Ensure that the text to be inserted is not using previous attributes
         preserveTypingAttributes()
@@ -407,7 +407,7 @@ open class AutocompleteManager: NSObject, InputPlugin, UITextViewDelegate, UITab
         }
         
         let totalRange = NSRange(location: 0, length: textView.attributedText.length)
-        let selectedRange = textView.selectedRange
+        selectedRange = textView.selectedRange
         
         // range.length > 0: Backspace/removing text
         // range.lowerBound < textView.selectedRange.lowerBound: Ignore trying to delete
