@@ -455,10 +455,14 @@ open class AutocompleteManager: NSObject, InputPlugin, UITextViewDelegate, UITab
                 if isAutocompleted {
                     textView.attributedText.enumerateAttribute(.autocompleted, in: totalRange, options: .reverse) { _, subrange, stop in
                         let textTrimed = text.trimmingCharacters(in: .whitespacesAndNewlines)
-                        let newAttributedText = NSMutableAttributedString(string: textTrimed + " ", attributes: typingTextAttributes)
-                        let currentAttribute = textView.attributedText
-                        newAttributedText.append(currentAttribute!)
-                        textView.attributedText = newAttributedText
+//                         let newAttributedText = NSMutableAttributedString(string: textTrimed + " ", attributes: typingTextAttributes)
+//                         let currentAttribute = textView.attributedText
+//                         newAttributedText.append(currentAttribute!)
+//                         textView.attributedText = newAttributedText
+                        let mutable = NSMutableAttributedString(attributedString: textView.attributedText)
+                        mutable.setAttributes(typingTextAttributes, range: subrange)
+                        let replacementText = NSAttributedString(string: textTrimed + " ", attributes: typingTextAttributes)
+                        textView.attributedText = mutable.replacingCharacters(in: range, with: replacementText)
                         textView.selectedRange = NSRange(location: range.location + textTrimed.count, length: 0)
                         stop.pointee = true
                     }
