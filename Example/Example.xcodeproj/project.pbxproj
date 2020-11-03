@@ -29,6 +29,7 @@
 		38F0C20620C89CDD00FF8DD3 /* ConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F0C20520C89CDD00FF8DD3 /* ConversationCell.swift */; };
 		38F0C20820C89D1600FF8DD3 /* InboxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F0C20720C89D1600FF8DD3 /* InboxCell.swift */; };
 		38FCF9D6219F797600A47350 /* READMEPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FCF9D5219F797600A47350 /* READMEPreviewViewController.swift */; };
+		3DF81ABE2549828600909337 /* GPInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF81ABD2549828600909337 /* GPInputBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,6 +70,7 @@
 		38F0C20520C89CDD00FF8DD3 /* ConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCell.swift; sourceTree = "<group>"; };
 		38F0C20720C89D1600FF8DD3 /* InboxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxCell.swift; sourceTree = "<group>"; };
 		38FCF9D5219F797600A47350 /* READMEPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = READMEPreviewViewController.swift; sourceTree = "<group>"; };
+		3DF81ABD2549828600909337 /* GPInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPInputBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				383B83A01F47897800027965 /* Assets.xcassets */,
 				383B83A21F47897800027965 /* LaunchScreen.storyboard */,
 				383B83A51F47897800027965 /* Info.plist */,
+				3DF81ABD2549828600909337 /* GPInputBar.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -185,7 +188,7 @@
 				TargetAttributes = {
 					383B83981F47897800027965 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = JH5XJ55XGZ;
+						DevelopmentTeam = JX54RKG29B;
 						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
@@ -235,6 +238,7 @@
 				383989BA1F55C600003D30DD /* Lorem.swift in Sources */,
 				3821ADE120F534DA00DE0D1D /* SubviewExampleViewController.swift in Sources */,
 				38F0C1FE20C89C9B00FF8DD3 /* iMessageInputBar.swift in Sources */,
+				3DF81ABE2549828600909337 /* GPInputBar.swift in Sources */,
 				38F0C20620C89CDD00FF8DD3 /* ConversationCell.swift in Sources */,
 				3821ADE420F5359800DE0D1D /* CommonTableViewController.swift in Sources */,
 				38F0C20820C89D1600FF8DD3 /* InboxCell.swift in Sources */,
@@ -380,11 +384,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JH5XJ55XGZ;
+				DEVELOPMENT_TEAM = JX54RKG29B;
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.nathantannar.InputBarAccessoryViewExample;
+				PRODUCT_BUNDLE_IDENTIFIER = me.nathantannar.InputBarAccessoryView.zinzin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -394,11 +398,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JH5XJ55XGZ;
+				DEVELOPMENT_TEAM = JX54RKG29B;
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.nathantannar.InputBarAccessoryViewExample;
+				PRODUCT_BUNDLE_IDENTIFIER = me.nathantannar.InputBarAccessoryView.zinzin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};

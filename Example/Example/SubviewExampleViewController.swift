@@ -16,7 +16,6 @@ final class SubviewExampleViewController: CommonTableViewController {
     private var keyboardManager = KeyboardManager()
     
     // MARK: - View Life Cycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,15 +28,15 @@ final class SubviewExampleViewController: CommonTableViewController {
         keyboardManager.bind(to: tableView)
         
         // Add some extra handling to manage content inset
-        keyboardManager.on(event: .didChangeFrame) { [weak self] (notification) in
-            let barHeight = self?.inputBar.bounds.height ?? 0
-            self?.tableView.contentInset.bottom = barHeight + notification.endFrame.height
-            self?.tableView.scrollIndicatorInsets.bottom = barHeight + notification.endFrame.height
-            }.on(event: .didHide) { [weak self] _ in
-                let barHeight = self?.inputBar.bounds.height ?? 0
-                self?.tableView.contentInset.bottom = barHeight
-                self?.tableView.scrollIndicatorInsets.bottom = barHeight
-        }
+//        keyboardManager.on(event: .didChangeFrame) { [weak self] (notification) in
+//            let barHeight = self?.inputBar.bounds.height ?? 0
+//            self?.tableView.contentInset.bottom = barHeight + notification.endFrame.height
+//            self?.tableView.scrollIndicatorInsets.bottom = barHeight + notification.endFrame.height
+//            }.on(event: .didHide) { [weak self] _ in
+//                let barHeight = self?.inputBar.bounds.height ?? 0
+//                self?.tableView.contentInset.bottom = barHeight
+//                self?.tableView.scrollIndicatorInsets.bottom = barHeight
+//        }
     }
     
 }

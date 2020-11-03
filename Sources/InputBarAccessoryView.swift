@@ -590,6 +590,7 @@ open class InputBarAccessoryView: UIView {
         let bottomStackViewHeight = bottomStackView.arrangedSubviews.count > 0 ? bottomStackView.bounds.height : 0
         let verticalStackViewHeight = topStackViewHeight + bottomStackViewHeight
         let requiredHeight = inputTextViewHeight + totalPadding + verticalStackViewHeight
+        inputTextView.layoutIfNeeded()
         return CGSize(width: UIView.noIntrinsicMetric, height: requiredHeight)
     }
 
