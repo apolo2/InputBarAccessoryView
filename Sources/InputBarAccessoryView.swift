@@ -279,7 +279,7 @@ open class InputBarAccessoryView: UIView {
     
     /// A boolean that determines whether the sendButton's `isEnabled` state should be managed automatically.
     open var shouldManageSendButtonEnabledState = true
-    
+    open var shouldAnimateTextDidChangeLayout = false
     /// The height that will fit the current text in the InputTextView based on its current bounds
     public var requiredInputTextViewHeight: CGFloat {
         guard middleContentView == inputTextView else {
@@ -779,11 +779,10 @@ open class InputBarAccessoryView: UIView {
     ///   - newValue: New widthAnchor constant
     ///   - animated: If the layout should be animated
     open func setLeftStackViewWidthConstant(to newValue: CGFloat, animated: Bool) {
-        performLayout(animated) { 
+        performLayout(animated) {
             self.leftStackViewWidthConstant = newValue
             self.layoutStackViews([.left])
-            guard self.superview?.superview != nil else { return }
-            self.superview?.superview?.layoutIfNeeded()
+            self.layoutContainerViewIfNeeded()
         }
     }
     
@@ -793,11 +792,10 @@ open class InputBarAccessoryView: UIView {
     ///   - newValue: New widthAnchor constant
     ///   - animated: If the layout should be animated
     open func setRightStackViewWidthConstant(to newValue: CGFloat, animated: Bool) {
-        performLayout(animated) { 
+        performLayout(animated) {
             self.rightStackViewWidthConstant = newValue
             self.layoutStackViews([.right])
-            guard self.superview?.superview != nil else { return }
-            self.superview?.superview?.layoutIfNeeded()
+            self.layoutContainerViewIfNeeded()
         }
     }
     
@@ -810,10 +808,20 @@ open class InputBarAccessoryView: UIView {
         performLayout(animated) {
             self.shouldForceTextViewMaxHeight = newValue
             self.textViewHeightAnchor?.isActive = newValue
-            guard self.superview?.superview != nil else { return }
-            self.superview?.superview?.layoutIfNeeded()
+            self.layoutContainerViewIfNeeded()
         }
     }
+    
+    public func layoutContainerViewIfNeeded() {
+            guard
+                let UIInputSetContainerViewKind: AnyClass = NSClassFromString("UIInputSetContainerView"),
+                let container = superview?.superview,
+                container.isKind(of: UIInputSetContainerViewKind) else {
+                superview?.layoutIfNeeded()
+                return
+            }
+            superview?.superview?.layoutIfNeeded()
+        }
     
     // MARK: - Notifications/Hooks
     
@@ -865,6 +873,12 @@ open class InputBarAccessoryView: UIView {
         if shouldInvalidateIntrinsicContentSize {
             // Prevent un-needed content size invalidation
             invalidateIntrinsicContentSize()
+            if shouldAnimateTextDidChangeLayout {
+                inputTextView.layoutIfNeeded()
+                UIView.animate(withDuration: 0.15) {
+                    self.layoutContainerViewIfNeeded()
+                }
+            }
         }
     }
     
