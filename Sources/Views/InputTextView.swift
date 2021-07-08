@@ -63,6 +63,8 @@ open class InputTextView: UITextView {
     }
     
     open var isImagePasteEnabled: Bool = true
+    
+    open var pasteImageCallback: ((_ image: UIImage) -> Void)?
 
     /// A UILabel that holds the InputTextView's placeholder text
     public let placeholderLabel: UILabel = {
@@ -243,7 +245,8 @@ open class InputTextView: UITextView {
             return super.paste(sender)
         }
         if isImagePasteEnabled {
-            pasteImageInTextContainer(with: image)
+            self.pasteImageCallback?(image)
+//            pasteImageInTextContainer(with: image)
         } else {
             for plugin in inputBarAccessoryView?.inputPlugins ?? [] {
                 if plugin.handleInput(of: image) {
