@@ -812,7 +812,7 @@ open class InputBarAccessoryView: UIView {
         }
     }
     
-    public func layoutContainerViewIfNeeded() {
+    open func layoutContainerViewIfNeeded() {
             guard
                 let UIInputSetContainerViewKind: AnyClass = NSClassFromString("UIInputSetContainerView"),
                 let container = superview?.superview,
