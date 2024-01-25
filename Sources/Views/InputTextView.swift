@@ -123,10 +123,7 @@ open class InputTextView: UITextView {
         didSet {
             // When .zero a rendering issue can occur
             if scrollIndicatorInsets == .zero {
-                scrollIndicatorInsets = UIEdgeInsets(top: .leastNonzeroMagnitude,
-                                                     left: .leastNonzeroMagnitude,
-                                                     bottom: .leastNonzeroMagnitude,
-                                                     right: .leastNonzeroMagnitude)
+                scrollIndicatorInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
             }
         }
     }
@@ -165,10 +162,7 @@ open class InputTextView: UITextView {
         backgroundColor = .clear
         font = UIFont.preferredFont(forTextStyle: .body)
         isScrollEnabled = false
-        scrollIndicatorInsets = UIEdgeInsets(top: .leastNonzeroMagnitude,
-                                             left: .leastNonzeroMagnitude,
-                                             bottom: .leastNonzeroMagnitude,
-                                             right: .leastNonzeroMagnitude)
+        scrollIndicatorInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         setupPlaceholderLabel()
         setupObservers()
     }
